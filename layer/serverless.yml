@@ -1,0 +1,11 @@
+service: serverless-layer # NOTE: update this with your service name
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-1
+layers:
+  commonLibs:
+    path: common
+    compatibleRuntimes:
+      - nodejs8.10

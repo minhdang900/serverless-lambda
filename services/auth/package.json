@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "sls offline -s dev",
+    "debug": "SET SLS_DEBUG=* && node --inspect C:\\Users\\dang.tran\\AppData\\Roaming\\npm\\node_modules\\serverless\\bin\\serverless offline -s dev"
+  },
+  "dependencies": {
+    "serverless-offline": "^4.10.2",
+    "jsonwebtoken": "^8.5.1",
+    "jwk-to-pem": "^2.0.1",
+    "request": "^2.88.0"
+  }
+}

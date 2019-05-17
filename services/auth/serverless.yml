@@ -1,0 +1,34 @@
+service: authorize # NOTE: update this with your service name
+plugins:
+  - serverless-offline
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage, dev}
+  region: us-east-1
+  enviroment:
+    LAYER_COMMON_ARN: ${file(./serverless.env.yml):${self:provider.stage}.LAYER_COMMON_ARN}
+custome:
+  serverless-offline:
+    port: 4000
+functions:
+  auth:
+    handler: auth.authorize
+    layers:
+      - ${self:eviroment.LAYER_COMMON_ARN}
+  privateTest:
+    handler: handler.privateEndpoint
+    events:
+      - http:
+          path: api/private
+          method: get
+          authorizer: auth
+          cors:
+            origins:
+              - '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
