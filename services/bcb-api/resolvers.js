@@ -1,4 +1,4 @@
-import dynamodb from 'serverless-dynamodb-client';
+// import dynamodb from 'serverless-dynamodb-client';
 // const AWSXRay = require('aws-xray-sdk'); // eslint-disable-line global-require
 // const AWS = AWSXRay.captureAWS(require('aws-sdk')); // eslint-disable-line global-require
 

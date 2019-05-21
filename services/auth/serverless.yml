@@ -1,23 +1,23 @@
 service: authorize # NOTE: update this with your service name
-plugins:
-  - serverless-offline
+# plugins:
+#   - serverless-offline
+# custom:
+#   serverless-offline:
+#     port: 4000
 provider:
   name: aws
-  runtime: nodejs8.10
-  stage: ${opt:stage, dev}
+  runtime: nodejs10.x
+  stage: ${opt:stage, 'dev'}
   region: us-east-1
-  enviroment:
+  environment:
     LAYER_COMMON_ARN: ${file(./serverless.env.yml):${self:provider.stage}.LAYER_COMMON_ARN}
-custome:
-  serverless-offline:
-    port: 4000
 functions:
   auth:
-    handler: auth.authorize
-    layers:
-      - ${self:eviroment.LAYER_COMMON_ARN}
+    handler: src/auth.authorize
+    # layers:
+    #   - ${env: LAYER_COMMON_ARN}
   privateTest:
-    handler: handler.privateEndpoint
+    handler: src/handler.privateEndpoint
     events:
       - http:
           path: api/private

@@ -18,4 +18,4 @@ const schema = `
     }
 `;
 
-export { schema };
+export { schema }

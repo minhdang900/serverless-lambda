@@ -3,18 +3,18 @@ service: bcb-api
 
 # Use the serverless-webpack plugin to transpile ES6
 plugins:
-  - serverless-webpack
+  # - serverless-webpack
   # - serverless-offline
   # - serverless-dynamodb-local
 # serverless-webpack configuration
 # Enable auto-packing of external modules
 custom:
-  webpack:
-    webpackConfig: ./webpack.config.js
-    includeModules:
-      forceExclude:
-        - ''
-    packager: 'yarn'
+  # webpack:
+  #   webpackConfig: ./webpack.config.js
+  #   includeModules:
+  #     forceExclude:
+  #       - ''
+  #   packager: 'yarn'
   serverless-offline:
     port: 4000
   dynamodb:
@@ -31,7 +31,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs10.x
   stage: dev
   region: us-east-1
   # To load environment variables externally
