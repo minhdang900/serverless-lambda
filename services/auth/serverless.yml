@@ -1,6 +1,6 @@
 service: authorize # NOTE: update this with your service name
-# plugins:
-#   - serverless-offline
+plugins:
+  - serverless-offline
 # custom:
 #   serverless-offline:
 #     port: 4000
@@ -14,8 +14,8 @@ provider:
 functions:
   auth:
     handler: src/auth.authorize
-    # layers:
-    #   - ${env: LAYER_COMMON_ARN}
+    layers:
+      - ${env: LAYER_COMMON_ARN}
   privateTest:
     handler: src/handler.privateEndpoint
     events:

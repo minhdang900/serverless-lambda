@@ -4,10 +4,12 @@
   "description": "A template for creating a lambda with serverless on AWS with babel7 with the option to add a lambda layer",
   "main": "handler.js",
   "scripts": {
-    "deploy": "sls deploy",
     "lint": "eslint .",
-    "start": "sls offline start",
-    "test": "yarn lint && yarn jest"
+    "test": "yarn lint && yarn jest",
+    "dynamodb-generate-seed-data": "cd seed-data && node create-seed-data.js",
+    "dynamodb-insert-seed-data-dev": "cd seed-data && node insert-seed-data-dev.js",
+    "start": "npm run dynamodb-generate-seed-data && serverless dynamodb install && serverless offline start",
+    "deploy": "serverless deploy"
   },
   "author": "",
   "license": "MIT",
@@ -43,7 +45,9 @@
     "aws-sdk": "^2.457.0",
     "aws-xray-sdk": "^2.3.3",
     "babel-polyfill": "^6.26.0",
+    "faker": "^4.1.0",
     "graphql": "^14.3.0",
+    "jsonfile": "^5.0.0",
     "serverless-dynamodb-client": "0.0.2",
     "source-map-support": "^0.5.9"
   }

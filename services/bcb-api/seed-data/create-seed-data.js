@@ -9,25 +9,25 @@ faker.seed(1000);
 
 
 for (let i = 0; i < numUsers; i++) {
-    const id = i.toString();
-    const name = faker.commerce.productName();
-    const price = faker.finance.amount();
+  const id = i.toString();
+  const name = faker.commerce.productName();
+  const price = faker.finance.amount();
 
-    const product = {
-        id: id,
-        name: name,
-        price: price
-    };
+  const product = {
+    id,
+    name,
+    price,
+  };
 
-    pdata.push(product);
+  pdata.push(product);
 }
 
 const pfile = 'Products.json';
 
-jsonfile.writeFileSync(pfile, pdata, function (err) {
-    if (err) {
-        console.error(err);
-    } else {
-        console.log('data created successfully');
-    }
+jsonfile.writeFileSync(pfile, pdata, (err) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log('data created successfully');
+  }
 });
