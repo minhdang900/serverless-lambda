@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.2.0",
-    "apollo-server-lambda": "^2.5.0",
+    "apollo-server-lambda": "^2.14.2",
     "aws-sdk": "^2.457.0",
     "aws-xray-sdk": "^2.3.3",
     "babel-polyfill": "^6.26.0",
